@@ -1,0 +1,73 @@
+{
+  "name": "Demo - Webhook com Simulação de IA",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "demo",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [260, 300],
+      "webhookId": "demo"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Simula processamento de IA (delay de 2-4 segundos)\nconst delay = 2000 + Math.random() * 2000;\nawait new Promise(resolve => setTimeout(resolve, delay));\n\nconst input = $input.all()[0].json;\n\nreturn [{\n  json: {\n    status: 'processado',\n    request_id: input.body?.request_id || 'unknown',\n    canal: input.body?.canal || 'desconhecido',\n    prioridade: input.body?.prioridade || 'media',\n    mensagem_original: input.body?.mensagem || '',\n    resposta_ia: `Resposta simulada de IA para requisição #${input.body?.request_id}`,\n    worker: 'worker-' + Math.random().toString(36).substring(2, 8),\n    tempo_processamento_ms: Math.round(delay),\n    timestamp: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "code-1",
+      "name": "Simular Processamento IA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [500, 300]
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond-1",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [740, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Simular Processamento IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simular Processamento IA": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "tags": [
+    {
+      "name": "demo-escalabilidade"
+    }
+  ]
+}
