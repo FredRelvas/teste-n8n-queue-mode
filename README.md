@@ -114,7 +114,7 @@ python3 monitor-filas.py
 
 Exibe em tempo real: jobs ativos, próximos na fila, log de eventos e sparklines com histórico de carga.
 
-Além dessas opções você pode acessar a aba de **"Executions"** no n8n local para visualizar as novas requisições que chegam e as já resolvidas.
+Além disso, você pode acessar a aba **Executions** no n8n local para visualizar as novas requisições que chegam e as já resolvidas.
 
 ### 9. Escalar workers dinamicamente
 
