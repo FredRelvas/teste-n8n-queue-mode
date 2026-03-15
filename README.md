@@ -74,9 +74,10 @@ Abra http://localhost:5678 no navegador e crie sua conta inicial.
 
 ### 5. Importar e publicar o workflow
 
-1. No n8n, clique em **"..."** > **"Import from File"**
-2. Selecione o arquivo `workflow-demo-escalabilidade.json`
-3. Clique em **"Publish"** (canto superior direito) para ativar o workflow
+1. Crie um fluxo novo/vazio no n8n local
+2. Dentro do fluxo vazio, clique em **"..."** > **"Import from File"**
+3. Navegue até e selecione o arquivo `workflow-demo-escalabilidade.json`
+4. Clique em **"Publish"** (canto superior direito) para ativar o workflow
 
 ### 6. Testar manualmente (opcional)
 
@@ -114,6 +115,8 @@ python3 monitor-filas.py
 Exibe em tempo real: jobs ativos, próximos na fila, log de eventos e sparklines com histórico de carga.
 
 Alternativamente, acesse o **RedisInsight** em http://localhost:5540 e conecte em `localhost:6379`.
+
+Além dessas opções você pode acessar a aba de **"Executions"** no n8n local para visualizar as novas requisições que chegam e as já resolvidas.
 
 ### 9. Escalar workers dinamicamente
 
