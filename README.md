@@ -70,7 +70,7 @@ Todos os serviços devem estar "running" ou "healthy". Os 3 workers podem levar 
 
 ### 4. Acessar o n8n
 
-Abra http://localhost:5678 no navegador e crie sua conta inicial.
+Abra http://localhost:5678 no navegador e crie sua conta inicial (por ser um ambiente local o que você coloca aqui para "criar uma conta" não importa).
 
 ### 5. Importar e publicar o workflow
 
