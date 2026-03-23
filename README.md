@@ -188,3 +188,7 @@ Esta demo é propositalmente simplificada para fins didáticos. Para um ambiente
 - **Logging centralizado** — os logs ficam apenas no Docker. Em produção, enviar para ELK, Datadog, Grafana Loki, etc.
 - **Métricas e alertas** — o n8n expõe métricas Prometheus (`N8N_METRICS=true` já está ativado), mas não há Prometheus/Grafana configurados para coletá-las e criar dashboards.
 - **Alertas na fila** — monitorar se `bull:jobs:failed` cresce ou se `bull:jobs:wait` fica grande por muito tempo.
+
+## Demo
+
+<video src="demoWecancer.mp4" controls width="100%"></video>
