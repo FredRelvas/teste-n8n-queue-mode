@@ -191,4 +191,4 @@ Esta demo é propositalmente simplificada para fins didáticos. Para um ambiente
 
 ## Demo
 
-<video src="demoWecancer.mp4" controls width="100%"></video>
+![Demo](demoWecancer.gif)
